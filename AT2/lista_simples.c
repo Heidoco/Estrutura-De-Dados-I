@@ -28,11 +28,11 @@ node sllInsere(node head, int valor){
 
 void sllImprime(node head){
     node copialista = head;
-    printf("%f\n", copialista->info);
+    printf("%d\n", copialista->info);
     while (copialista->prox != NULL)
     {
         copialista = copialista->prox;
-        printf("%f\n", copialista->info);
+        printf("%d\n", copialista->info);
     }
 }
 
@@ -45,12 +45,42 @@ int sllVazia(node head){
 }
 
 node sllBusca(node head, int v){
+    
     node copialista = head;
-    while ((copialista->prox != NULL) || (v != copialista->info ))
+    while (copialista->prox != NULL) 
+    {
+        if (v == copialista->info){
+            printf("Existe");
+            return copialista;
+            
+        }
+        copialista = copialista->prox;
+    }
+    printf("Não Existe");
+    return copialista;
+}
+
+int sllComprimento(node head){
+    node copialista = head;
+    int cont = 0;
+    while (copialista != NULL)
+    {
+        cont ++;
+        copialista = copialista->prox;
+
+    }
+    return cont;
+}
+
+node sllUltimo(node head){
+    node copialista = head;
+    if (head == NULL) 
+    { 
+        return NULL;
+    }
+    while (copialista->prox != NULL) 
     {
         copialista = copialista->prox;
     }
     return copialista;
 }
-
-
