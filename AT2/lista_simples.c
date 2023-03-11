@@ -1,10 +1,10 @@
 #include "lista_simples.h"
 
 node sllCria(){
-    node temp; // declare a node
-    temp = (node)malloc(sizeof(NoLista)); // allocate memory using malloc()
-    temp -> prox = NULL;// make next point to NULL
-    return temp;//return the new node
+    node temp;
+    temp = (node)malloc(sizeof(NoLista)); 
+    temp -> prox = NULL;
+    return temp;
 }
 
 
