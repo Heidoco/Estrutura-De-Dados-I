@@ -37,7 +37,7 @@ void sllImprime(node head){
 }
 
 int sllVazia(node head){
-    if (head->info)
+    if (head->info == 0 && head->prox == NULL)
     {
         return 1;
     }
