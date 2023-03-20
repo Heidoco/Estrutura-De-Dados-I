@@ -20,11 +20,11 @@ node sllUltimo(node head);
 node sllRetira(node head, int v);
 void sllLibera(node head);
 node sllInsereFim(node head, int v);
-int sllIgual(NoLista *lista1, NoLista *lista2);
-// void sllImprimeRecursivo(NoLista *head);
-// NoLista *sllRetiraRecursivo(NoLista *head, int v);
-// int sllComprimentoRecursivo(NoLista *head);
-// NoLista *sllIgualRecursivo();
+int sllIgual(node lista1, node lista2);
+void sllImprimeRecursivo(node head);
+node sllRetiraRecursivo(node head, int v);
+int sllComprimentoRecursivo(node head);
+int sllIgualRecursivo();
 
 
 

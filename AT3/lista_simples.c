@@ -25,12 +25,12 @@ void sllImprime(node head){
     };
     node copialista = head;
     printf("[");
-    printf("%d, ", copialista->info);
+    printf("%d", copialista->info);
     
     while (copialista->prox != NULL)
     {
         copialista = copialista->prox;
-        printf("%d, ", copialista->info);
+        printf(", %d", copialista->info);
     }
     printf("]\n");
 }
@@ -46,15 +46,15 @@ int sllVazia(node head) {
 node sllBusca(node head, int v){
     
     node copialista = head;
-    while (copialista->prox != NULL) 
+    while (copialista != NULL) 
     {
         if (v == copialista->info){
-            printf("Existe");
+            printf("%d Pertence\n", v);
             return copialista;            
         }
         copialista = copialista->prox;
     }
-    printf("Não Existe");
+    printf("%d Não Pertence\n", v);
     return copialista;
 }
 
@@ -132,4 +132,65 @@ node sllInsereFim(node head, int v){
         p->prox = temp;
     }
     return head;
+}
+
+int sllIgual(node lista1, node lista2){
+    node tempL1, tempL2;
+    tempL1 = lista1;
+    tempL2 = lista2;
+    while (tempL1 != NULL && tempL2 != NULL)
+    {
+        if (tempL1->info != tempL2->info)return 0;
+        tempL1 = tempL1->prox;
+        tempL2 = tempL2->prox;
+    }
+    return tempL1 == NULL && tempL2 == NULL;
+}
+
+void sllImprimeRecursivo(node head){
+    if (head == NULL)
+    {
+        printf("\n");
+        return;
+    }
+    printf(" %d" , head->info);
+    sllImprimeRecursivo(head -> prox);
+}
+
+node sllRetiraRecursivo(node head, int v){
+    if (head == NULL)return head;
+    if (head->prox->info == v)
+    {
+        node temp;
+        temp = head->prox;
+        head->prox = temp->prox;
+        free(temp);
+        return head;
+    }
+    else
+    {
+        sllRetiraRecursivo(head->prox, v);
+    }    
+}
+
+int sllComprimentoRecursivo(node head){
+    int cont = 0;
+    if(head == NULL)return 0;
+    cont += (1 + sllComprimentoRecursivo(head->prox));
+    return cont;
+}
+
+int sllIgualRecursivo(node lista1, node lista2){
+    if (lista1->prox == NULL && lista2->prox == NULL)
+    {
+        return 1;
+    }
+    if (lista1->prox == NULL || lista2->prox == NULL){
+        return 0;
+    }
+    if (lista1->info == lista2->info)
+    {        
+        sllIgualRecursivo(lista1->prox,lista2->prox);
+    }
+
 }
