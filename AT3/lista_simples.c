@@ -36,10 +36,7 @@ void sllImprime(node head){
 }
 
 int sllVazia(node head) {
-    if (head == NULL || (head->info == 0 && head->prox == NULL)) {
-        return 1;
-    }
-    return 0;
+    return head == NULL; // Caso ponteiro da head seja nulo, retorna verdadeiro para a lista vazia
 }
 
 
