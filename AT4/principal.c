@@ -40,8 +40,18 @@ int main(int argc, char const *argv[])
     // lista1 = dllInsereFim(lista1,24343);
     dllImprime(lista1);
 
+    NoListaDupla *lista2 = dllCria();
+    lista2 = dllInsere(lista2, 1);
+    dllImprime(lista1);
+    printf("%d\n",dllUltimo(lista2)->info);
+    lista2 = dllInsere(lista2, 2);
+    lista2 = dllInsere(lista2, 4);
+    lista2 = dllInsereFim(lista2,23);
+    //lista2 = dllInsereFim(lista2,2323);
 
-
-
+    printf("Verificando igualdade entre: \n");
+    dllImprime(lista1);
+    dllImprime(lista2);
+    printf("%d\n",dllIgual(lista1,lista2));
     return 0;
 }

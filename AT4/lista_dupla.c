@@ -142,3 +142,17 @@ NoListaDupla *dllInsereFim(NoListaDupla *head, int v){
     }
     return head;
 }
+
+int dllIgual(NoListaDupla *lista1, NoListaDupla *lista2){
+    if (lista1->prox == NULL && lista2->prox == NULL)
+    {
+        return 1;
+    }
+    if (lista1->prox == NULL || lista2->prox == NULL){
+        return 0;
+    }
+    if (lista1->info == lista2->info)
+    {        
+        dllIgual(lista1->prox,lista2->prox);
+    }
+}
