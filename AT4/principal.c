@@ -53,5 +53,7 @@ int main(int argc, char const *argv[])
     dllImprime(lista1);
     dllImprime(lista2);
     printf("%d\n",dllIgual(lista1,lista2));
+    NoListaDupla *listamerged = dllMerge(lista1,lista2);
+    dllImprime(listamerged);
     return 0;
 }

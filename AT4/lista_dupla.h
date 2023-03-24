@@ -20,4 +20,4 @@ NoListaDupla *dllRetira(NoListaDupla *head, int v);
 void dllLibera(NoListaDupla *head);
 NoListaDupla *dllInsereFim(NoListaDupla *head, int v);
 int dllIgual(NoListaDupla *lista1, NoListaDupla *lista2);
-NoListaDupla dllMerge(NoListaDupla *l1, NoListaDupla *l2);
+NoListaDupla* dllMerge(NoListaDupla *l1, NoListaDupla *l2);

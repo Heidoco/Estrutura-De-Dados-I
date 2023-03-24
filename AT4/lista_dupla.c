@@ -156,3 +156,27 @@ int dllIgual(NoListaDupla *lista1, NoListaDupla *lista2){
         dllIgual(lista1->prox,lista2->prox);
     }
 }
+
+NoListaDupla* dllMerge(NoListaDupla *l1, NoListaDupla *l2){
+    NoListaDupla *tl1, *tl2, *mergelist;
+    tl1 = l1;
+    tl2 = l2;
+    mergelist = dllCria();
+    while (tl1 != NULL || tl2 != NULL)
+    {
+        if (tl1 != NULL)
+        {
+            mergelist = dllInsereFim(mergelist, tl1->info);
+            tl1 = tl1->prox;
+        }
+        if (tl2 != NULL)
+        {
+            mergelist = dllInsereFim(mergelist, tl2->info);
+            tl2 = tl2->prox;
+        }
+    }
+    return mergelist;
+    
+
+
+}
