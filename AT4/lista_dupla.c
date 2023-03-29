@@ -1,25 +1,20 @@
 #include "lista_dupla.h"
 
 NoListaDupla *dllCria(void){
-    NoListaDupla* head;
-    head = (NoListaDupla*)malloc(sizeof(NoListaDupla));
-    head->prox = NULL;
-    head->ant = NULL;
-    return head;
+    return NULL;
 }
 
 NoListaDupla *dllInsere(NoListaDupla *head, int v){
     NoListaDupla* no;
     no = (NoListaDupla*)malloc(sizeof(NoListaDupla));
-    no->prox = head;
     no->ant = NULL;
     no->info = v;
-    
+    no->prox = NULL;
     if (head != NULL)
     {
         head->ant = no;
+        no->prox = head;
     }
-    
     return no;
 }
 
@@ -27,14 +22,22 @@ void dllImprime(NoListaDupla *head){
     if (head != NULL)
     {
     NoListaDupla* no_temp = head;
-    printf("[%d",no_temp->info);
-    no_temp = no_temp->prox;
-    while (no_temp->prox != NULL)
+    printf("[");
+    while (no_temp != NULL)
     {
-        printf(", %d",no_temp->info);
+        if (no_temp->prox == NULL)
+        {
+            printf("%d",no_temp->info);
+        }
+        else
+        {
+            printf("%d, ",no_temp->info);
+            
+        }
         no_temp = no_temp->prox;
     }
     printf("]\n");
+    no_temp = NULL;
     }
     else
     {
@@ -43,32 +46,40 @@ void dllImprime(NoListaDupla *head){
 }
 
 int dllVazia(NoListaDupla *head){
-    return head->info == 0 && head->prox == NULL;
+    return head == NULL;
 }
 
 NoListaDupla *dllBusca(NoListaDupla *head, int v){
     NoListaDupla* no_temp = head;
     while (no_temp != NULL)
     {
+        //printf("Notemp = %d", no_temp->info);
         if (no_temp->info == v)
         {
             printf("Existe");
+            no_temp = NULL;
             return no_temp;
         }
         no_temp = no_temp->prox;
     }
-    printf("Nao existe");
+     no_temp = NULL;
+    printf("Não existe");
     return NULL;
 }
 
 int dllComprimento(NoListaDupla *head){
+    if (head == NULL)
+    {
+        return 0;
+    }
     NoListaDupla* no_temp = head;
-    int contador = 0;
+    int contador = 1;
     while (no_temp->prox)
     {
         contador++;
         no_temp = no_temp->prox;
     }
+    no_temp = NULL;
     return contador;
 }
 
@@ -114,33 +125,40 @@ NoListaDupla *dllRetira(NoListaDupla *head, int v){
     return head;
 }
 
-void dllLibera(NoListaDupla *head){
-
-    while (head != NULL) {
-    NoListaDupla* prox = head->prox;
-    free(head);
-    head = prox;
+void dllLibera(NoListaDupla **head_ptr){
+    NoListaDupla* prox; 
+    while (*head_ptr != NULL) {
+        prox = (*head_ptr)->prox;
+        free(*head_ptr);
+        *head_ptr = prox;
     }
 }
 
+
 NoListaDupla *dllInsereFim(NoListaDupla *head, int v){ 
-    NoListaDupla *temp, *p; 
+    NoListaDupla *temp;
     temp = (NoListaDupla*)malloc(sizeof(NoListaDupla));
-    temp -> info = v;
+    temp->info = v;
     temp->prox = NULL;
-    temp->ant = NULL;
-    if(head == NULL){
+    if (head == NULL)
+    {
         head = temp;
+        temp->ant = NULL;
     }
-    else{
-        p = head; 
-        while(p -> prox != NULL){
-            p = p -> prox;
+    else
+    {
+        NoListaDupla *atual = head;
+        while (atual->prox != NULL)
+        {
+            atual = atual->prox;
         }
-        p->prox = temp;
-        temp->ant = p;
+        atual->prox = temp;
+        temp->ant = atual;
     }
+
     return head;
+    
+    
 }
 
 int dllIgual(NoListaDupla *lista1, NoListaDupla *lista2){
