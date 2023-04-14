@@ -50,7 +50,7 @@ const char* toString(FilaVetor *f)
 {
     int cont = 0;
     char* filastr = (char*) malloc((f->n * 10) * sizeof(char));
-    char* start = filastr; // create a separate pointer to keep track of the start of the string
+    char* start = filastr; 
     
     while (cont < (f->n)-1)
     {
@@ -58,7 +58,7 @@ const char* toString(FilaVetor *f)
         cont++;
     }
     
-    sprintf(filastr, "%d", f->vet[(f->ini+cont)%f->tam]); // handle the last element without a trailing space
+    sprintf(filastr, "%d", f->vet[(f->ini+cont)%f->tam]);
     
     return start;
 }
