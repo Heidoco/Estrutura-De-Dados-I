@@ -9,13 +9,22 @@ ArvoreBin *insere(int v, ArvoreBin *esq, ArvoreBin *dir)
     return temp;
 }
 
+int vazia(ArvoreBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 char* toString(ArvoreBin *raiz)
 {
-    char* string = malloc(sizeof(char) * 100); // Allocate initial memory for string
+    char* string = malloc(sizeof(char) * 100);
     
-    if (string != NULL) // Check if memory allocation was successful
+    if (string != NULL) 
     {
-        strcpy(string, "<"); // Initialize string with opening angle bracket
+        strcpy(string, "<"); 
         
         if (raiz != NULL)
         {
@@ -37,16 +46,6 @@ char* toString(ArvoreBin *raiz)
         strcat(string, ">");
     }
     return string;
-}
-
-
-int vazia(ArvoreBin *raiz)
-{
-    if (raiz == NULL)
-    {
-        return 1;
-    }
-    return 0;
 }
 
 int pertence(ArvoreBin *raiz, int valor)
@@ -143,6 +142,5 @@ int igual(ArvoreBin *raiz1, ArvoreBin *raiz2)
     {
         if (igual(raiz1->sae, raiz2->sae)) return igual(raiz1->sad, raiz2->sad);
     }
-
     return 0;
 }

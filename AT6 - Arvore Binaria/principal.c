@@ -47,5 +47,22 @@ int main()
        if (igual(raiz1,raiz3)) printf("Raiz 1 e 3 São iguais"); else printf("Raiz 1 e 3 São diferentes\n");
        
        printf(toString(raiz1));
+
+       ArvoreBin *raiz4 = insere(10, NULL, NULL);
+       printf("\nAltura da arvore 4: %d\n", altura(raiz4));
+       raiz4 = insere(8, raiz4, NULL);
+       printf("Altura da arvore 4: %d\n", altura(raiz4));
+       raiz4 = insere(6, raiz4, NULL);
+       printf("Altura da arvore 4: %d\n", altura(raiz4)); 
+
+       printf("Arvore 3: ");
+       imprimePre(raiz3);
+       printf("\nValores pares da árvore 3: %d\n", pares(raiz3));
+       printf("Quantidade de folhas da árvore 3: %d\n", folhas(raiz3)); 
+
+       if (igual(raiz2, NULL)) printf("Raiz 2 é nula\n");
+       if (igual(NULL, raiz2)) printf("Raiz 2 é nula\n");
+       if (igual(NULL, NULL)) printf("Nulas\n");
+
        return 0;
 }
