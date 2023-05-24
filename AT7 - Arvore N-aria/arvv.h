@@ -13,11 +13,11 @@ typedef struct arvv Arvv;
 
 Arvv* arvv_cria(int v);
 void arvv_insere(Arvv*a, Arvv*sa);
-Arvv* arvv_libera(Arvv* a);
+void arvv_libera(Arvv* a);
 int arvv_pertence(Arvv* a, int n);
 void arvv_imprime(Arvv* a);
 int arvv_altura(Arvv* a);
 int arvv_pares(Arvv* a);
 int arvv_folhas(Arvv* a);
-int arvv_ivual(Arvv* a1, Arvv* a2);
+int arvv_igual(Arvv* a1, Arvv* a2);
 Arvv* arvv_copia(Arvv* a);
